@@ -7,5 +7,8 @@ dist-ssr/
 .DS_Store
 .vscode/
 .idea/
+.vs/
 *.log
 npm-debug.log*
+*.suo
+*.user

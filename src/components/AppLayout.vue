@@ -39,18 +39,18 @@ watch(
 )
 
 watchEffect(() => {
-  document.title = `${pageTitle.value} · 墨卷`
+  document.title = `${pageTitle.value} - 图书管理系统`
 })
 
-async function logout() {
-  try {
-    await authApi.logout()
-  } catch {
-    // 本地退出不依赖后端令牌是否仍有效
-  }
+function logout() {
+  // 先清除本地登录状态并跳转，保证点击后立刻有反馈；
+  // 通知后端令牌失效的请求放在后台异步执行，后端没响应也不影响退出
   clearSession()
-  notify('已安全退出登录', 'info')
+  notify('已退出登录', 'info')
   router.replace('/login')
+  authApi.logout().catch(() => {
+    // 后端令牌失效失败不影响本地退出
+  })
 }
 </script>
 
@@ -62,8 +62,8 @@ async function logout() {
       <div class="brand">
         <div class="brand-mark">书</div>
         <div class="brand-copy">
-          <strong>墨卷</strong>
-          <span>图书借阅管理系统</span>
+          <strong>图书管理系统</strong>
+          <span>借阅管理平台</span>
         </div>
       </div>
 
@@ -109,6 +109,7 @@ async function logout() {
         <div class="topbar-meta">
           <span class="today">{{ currentDateText() }}</span>
           <span class="role-chip" :class="{ admin: isAdmin }">{{ roleLabel }}</span>
+          <button class="logout-btn" @click="logout">退出登录</button>
         </div>
       </header>
 

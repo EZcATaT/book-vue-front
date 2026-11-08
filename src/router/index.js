@@ -77,7 +77,7 @@ router.beforeEach((to) => {
 })
 
 router.afterEach((to) => {
-  document.title = `${to.meta.title || '图书借阅'} · 墨卷`
+  document.title = `${to.meta.title || '首页'} - 图书管理系统`
 })
 
 export default router

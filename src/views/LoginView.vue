@@ -61,57 +61,16 @@ async function submit() {
 
 <template>
   <div class="auth-page">
-    <section class="auth-visual">
-      <div class="visual-brand">
-        <div class="brand-mark large">书</div>
-        <div>
-          <strong>墨卷</strong>
-          <span>图书借阅管理系统</span>
-        </div>
-      </div>
-
-      <div class="visual-copy">
-        <div class="visual-eyebrow">LIBRARY · BORROW · RETURN</div>
-        <h1>让每一本书<br /><em>都有迹可循</em></h1>
-        <p>
-          用更简单的方式管理馆藏、读者与借阅记录。登录后即可浏览图书、办理借还，
-          管理员还能管理全部用户和借阅数据。
-        </p>
-      </div>
-
-      <div class="visual-features">
-        <div class="feature-item">
-          <span class="feature-index">01</span>
-          <div><strong>馆藏清晰</strong><span>图书信息与库存一目了然</span></div>
-        </div>
-        <div class="feature-item">
-          <span class="feature-index">02</span>
-          <div><strong>借还联动</strong><span>借书自动减库存，还书自动恢复</span></div>
-        </div>
-        <div class="feature-item">
-          <span class="feature-index">03</span>
-          <div><strong>角色分明</strong><span>管理员与普通用户各司其职</span></div>
-        </div>
-      </div>
-
-      <div class="visual-quote">
-        <span>“</span>
-        <p>书籍是人类进步的阶梯。</p>
-        <small>—— 高尔基</small>
-      </div>
-    </section>
-
     <section class="auth-panel">
       <div class="auth-card">
         <div class="auth-mobile-brand">
           <div class="brand-mark">书</div>
-          <strong>墨卷</strong>
+          <strong>图书借阅管理系统</strong>
         </div>
 
         <div class="auth-heading">
-          <span class="eyebrow">WELCOME BACK</span>
-          <h2>欢迎回来</h2>
-          <p>登录你的账号，继续今天的阅读与管理。</p>
+          <h2>用户登录</h2>
+          <p>请输入账号和密码</p>
         </div>
 
         <div v-if="notice" class="form-notice">{{ notice }}</div>
@@ -146,16 +105,10 @@ async function submit() {
         </form>
 
         <div class="demo-accounts">
-          <div class="demo-title"><span></span>演示账号<span></span></div>
-          <div class="demo-buttons">
-            <button type="button" @click="fillDemo('admin')">
-              <strong>管理员</strong>
-              <span>admin / 123456</span>
-            </button>
-            <button type="button" @click="fillDemo('reader')">
-              <strong>普通用户</strong>
-              <span>reader / 123456</span>
-            </button>
+          <div class="demo-title">
+            演示账号：
+            <a href="#" @click.prevent="fillDemo('admin')">admin / 123456</a>（管理员）、
+            <a href="#" @click.prevent="fillDemo('reader')">reader / 123456</a>（普通用户）
           </div>
         </div>
 

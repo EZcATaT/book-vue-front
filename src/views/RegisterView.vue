@@ -51,72 +51,30 @@ async function submit() {
 
 <template>
   <div class="auth-page register-page">
-    <section class="auth-visual">
-      <div class="visual-brand">
-        <div class="brand-mark large">书</div>
-        <div>
-          <strong>墨卷</strong>
-          <span>图书借阅管理系统</span>
-        </div>
-      </div>
-
-      <div class="visual-copy">
-        <div class="visual-eyebrow">JOIN THE LIBRARY</div>
-        <h1>从一本好书<br /><em>开始新的故事</em></h1>
-        <p>
-          注册成为普通读者，即可浏览馆藏、借阅图书、查看自己的借阅记录。
-          管理员账号由系统统一维护。
-        </p>
-      </div>
-
-      <div class="register-steps">
-        <div class="register-step">
-          <span>1</span>
-          <div><strong>创建账号</strong><p>填写账号、姓名和密码</p></div>
-        </div>
-        <div class="register-step">
-          <span>2</span>
-          <div><strong>登录系统</strong><p>使用新账号登录</p></div>
-        </div>
-        <div class="register-step">
-          <span>3</span>
-          <div><strong>开始借阅</strong><p>在图书列表中挑选想读的书</p></div>
-        </div>
-      </div>
-
-      <div class="visual-quote">
-        <span>“</span>
-        <p>读书百遍，其义自见。</p>
-        <small>—— 《三国志》</small>
-      </div>
-    </section>
-
     <section class="auth-panel">
       <div class="auth-card">
         <div class="auth-mobile-brand">
           <div class="brand-mark">书</div>
-          <strong>墨卷</strong>
+          <strong>图书借阅管理系统</strong>
         </div>
 
         <div class="auth-heading">
-          <span class="eyebrow">CREATE ACCOUNT</span>
           <h2>注册读者账号</h2>
-          <p>注册后默认为普通用户，可借阅图书和管理自己的记录。</p>
+          <p>注册后为普通用户，可以借阅图书并查看自己的借阅记录。</p>
         </div>
 
         <div v-if="errorMessage" class="form-error">{{ errorMessage }}</div>
 
         <form class="auth-form" @submit.prevent="submit">
-          <div class="form-row two">
-            <label class="field">
-              <span>登录账号</span>
-              <input v-model="form.username" type="text" placeholder="至少 3 个字符" maxlength="50" />
-            </label>
-            <label class="field">
-              <span>姓名</span>
-              <input v-model="form.name" type="text" placeholder="请输入真实姓名" maxlength="50" />
-            </label>
-          </div>
+          <label class="field">
+            <span>登录账号</span>
+            <input v-model="form.username" type="text" placeholder="至少 3 个字符" maxlength="50" />
+          </label>
+
+          <label class="field">
+            <span>姓名</span>
+            <input v-model="form.name" type="text" placeholder="请输入真实姓名" maxlength="50" />
+          </label>
 
           <label class="field">
             <span>设置密码</span>
